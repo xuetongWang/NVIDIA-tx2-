@@ -41,7 +41,7 @@ make ARCH=arm64 tegra_defconfig
 ```c
 make ARCH=arm64 menuconfig
 ```
-进行配置。配置完成之后执行[`build_kernel.sh`](../Sdk_platform/Kernel_4.9_Src/kernel/kernel-4.9/build_kernel.sh)即可构建内核  
+进行配置。配置完成之后执行[build_kernel.sh](../Sdk_platform/Kernel_4.9_Src/kernel/kernel-4.9)即可构建内核  
 
 修改内核的时候把.config 文件重新从image拷贝到kernel-4.9后重新编译即可。
 * 说明  
