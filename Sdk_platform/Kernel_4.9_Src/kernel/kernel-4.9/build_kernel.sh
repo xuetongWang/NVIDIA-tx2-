@@ -3,7 +3,7 @@
 echo "当前操作目录 $PWD"
 export CROSS_COMPILE=/usr/local/arm64gcc/gcc-linaro-7.3.1-2018.05-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 
-TEGRA_KERNEL_OUT=/home/tinytong/Tx2newPro/Sdk_platform
+TEGRA_KERNEL_OUT=/home/tinytong/work/github/tx2/Sdk_platform
 
 MODULE_KERNEL_OUT=${TEGRA_KERNEL_OUT}/Linux_for_Tegra/rootfs
 TOP_IMAGE=${TEGRA_KERNEL_OUT}/Kernel_4.9_Src/image
