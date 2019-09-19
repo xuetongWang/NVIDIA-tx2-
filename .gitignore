@@ -3,6 +3,7 @@
 /Sdk_platform/Linux_for_Tegra/clone.img.raw
 /Sdk_platform/Linux_for_Tegra/bootloader/system.img
 /Sdk_platform/public_sources
+/Book_file
 
 *.txt.user
 *.bin
