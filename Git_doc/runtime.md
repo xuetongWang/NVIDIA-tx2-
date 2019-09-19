@@ -103,7 +103,7 @@ skip-grant-tables=1
 ```
 
 ## 烧写
-烧写主要应用文件[`flash.sh`](runtime/flash/flash.sh)关于脚本内容说明如下：  
+烧写主要应用文件[flash.sh](../Sdk_platform/Linux_for_Tegra/flash.sh)关于脚本内容说明如下：  
 ```c
 ./flash.sh [options] ${target_board} ${target_rootdev}
 ```
