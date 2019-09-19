@@ -2,8 +2,6 @@ TX2 运行环境配置
 ================
 * [软件环境说明](#软件环境说明)
 * [启动流程](#启动流程)
-* [编译cboot](#编译cboot)
-    * [编译过程](#编译过程)
 * [内核编译](#内核编译)
     * [编译过程](#编译过程)
     * [说明](#说明)
@@ -29,23 +27,10 @@ TX2 运行环境配置
 * 板级支持包：tegra-l4t-r32.1  
 * dtb根目录：tegra186-quill-p3310-1000-c03-00-base.dtb  
 
-## 启动流程
-TX2的启动包括：1-通用驱动框架 2-MB1 3-MB2(TBOOT-BPMP) 4-TBOOT-CUP 5-CBOOT 6-UBOOT  
-其中除了UBOOT之外的其他4个启动流程的节点(MB1,MB2,TBOOT-CPU,CBOOT)都包含了通用驱动框架。
-TX2的启动流程：BTROM(一个硬件，包含了启动配置表)---->MB1(MB1的配置文件：tegra186-mb1-bct-***-p3310-1000-c03.cfg)----->MB2---->CBOOT---->UBOOT(OR KERNEL )
-
-## 编译cboot
-### 编译过程
-进入到cboot根目录执行：
-
-```c
-make -C ./bootloader/partner/t18x/cboot PROJECT=t186 TOOLCHAIN_PREFIX="aarch64-unknown-linux-gnu-" DEBUG=2 BUILDROOT="${PWD}"/out NV_BUILD_SYSTEM_TYPE=l4t NOECHO=@
-```
-把cboot/out/build-t186/lk.bin重命名cboot.bin并且放在烧写目录的bootloader下面
-
 ## 内核编译
 * 编译过程  
-进入/home/tinytong/Tx2newPro/Sdk_platform/Kernel_4.9_Src目录下并在目录下新建image文件夹执行：
+进入/home/tinytong/Tx2newPro/Sdk_platform/Kernel_4.9_Src目录下并在目录下新建image文件夹  
+在/home/tinytong/work/github/tx2/Sdk_platform/Kernel_4.9_Src/kernel/kernel-4.9下执行：
 
 ```c
 make ARCH=arm64 tegra_defconfig
@@ -56,21 +41,9 @@ make ARCH=arm64 tegra_defconfig
 ```c
 make ARCH=arm64 menuconfig
 ```
+进行配置。配置完成之后执行[`build_kernel.sh`](../Sdk_platform/Kernel_4.9_Src/kernel/kernel-4.9/build_kernel.sh)即可构建内核  
 
-拷贝config文件以备下次使用：
-
-```c
-make ARCH=arm64 savedefconfig
-cp -v defconfig arch/arm64/configs/tegra_defconfig
-```
-
-因为编译的内核为image目录下所以需要吧.config 移动到image文件夹下面
-
-```c
-mv .config ./image
-```
-
-进行配置。配置完成之后执行[`build_kernel.sh`](Sdk_platform/Kernel_4.9_Src/kernel/kernel-4.9/build_kernel.sh)即可构建内核  
+修改内核的时候把.config 文件重新从image拷贝到kernel-4.9后重新编译即可。
 * 说明  
 build_kernel.sh为编译脚本，但是前提是有配置文件，第一次编译的时候是没有配置文件的。所以第一次需要用tegra_defconfig生成.config文件。生成了.config之后最好自己保存一份常用的.config文件，平时执行menuconfig配置就行了。  
 
