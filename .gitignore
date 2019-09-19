@@ -1,0 +1,13 @@
+/Sdk_platform/Kernel_4.9_Src/image
+/Sdk_platform/Linux_for_Tegra/rootfs
+/Sdk_platform/Linux_for_Tegra/clone.img.raw
+/Sdk_platform/Linux_for_Tegra/bootloader/system.img
+/Sdk_platform/public_sources
+
+*.txt.user
+*.bin
+*.o
+*.cmd
+*.mod.c
+*.cproject
+*.project
