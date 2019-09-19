@@ -64,7 +64,25 @@ en_avdd_disp_3v3: regulator@8 {
 * ip link set up can0
 ## 串口触摸屏
 * 供电芯片TCA9539 主要修改[`tegra186-cvb-prod-p2597-b00-p3310-1000-a00-00.dtsi`](Sdk_platform/Kernel_4.9_Src/hardware/nvidia/platform/t18x/common/kernel-dts/tegra186-cvb-prod-p2597-b00-p3310-1000-a00-00.dtsi)
-* 
+ 
+## 数据库硬盘挂载
+
+* 查看硬盘信息
+```c
+sudo blkid
+```
+
+* 格式化硬盘为ext4 格式
+```c
+mkfs.ext4 /dev/硬盘盘符
+```
+
+* 挂载到media/sleton下面
+```c
+sudo vi /etc/fstab
+/dev/sda    /meida/sleton   ext4  defaults     1   2 #置0为不备份，置1，2为备份，但2的备份重要性比1小    置0为不检验，置1，2为检验，但置2盘比置1的盘晚检验。
+```
+
 
 
 
