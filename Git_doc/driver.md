@@ -1,17 +1,17 @@
 驱动
 ================
-* [网卡驱动](#网卡驱动)
+* [PCIE卡驱动修改](#PCIE卡驱动修改)
 * [两路HDMI显示](#两路HDMI显示)
 * [总线CAN配置](#总线CAN配置)
 * [串口触摸屏](#串口触摸屏)
 
-## 网卡 
+## PCIE卡驱动修改 
 PCIE接口如下所示：  
 * 0接口: PEX2(LINE2)------PEX_RFU(LINE3)------PEX0(LINE0)------USB_SS1(LINE1):(PEX0_REFCLK)
 * 1接口：PEX2(LINE0)------------------------------------:(PEX2_REFCLK)
 * 2接口：PEX1(LINE0)------------------------------------:(PEX1_REFCLK)
 可配置选项如图
-![PCIE1](http://192.168.0.2:8089/wangxuetong/newServerproject/raw/master/Git_doc/images/1.png)
+![PCIE1](https://github.com/xuetongWang/NVIDIA-tx2-/tree/master/Git_doc/images/1.png)
 任何X4的总线可以单独使用X2线(LINE0&LINE1)或者可以使用X1线(LINE0).任何使用X2总线可以使用X1线(LINE0)
 
 * 由于内核已经集成了RTL8168的网卡驱动，所以我们不必更改网卡驱动部分的内容，只是吧module改成集成到内核之中，因为我们一直要使用小网卡，只是编译成模块没有意义。
