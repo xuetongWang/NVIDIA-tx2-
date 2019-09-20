@@ -11,7 +11,7 @@ PCIE接口如下所示：
 * 1接口：PEX2(LINE0)------------------------------------:(PEX2_REFCLK)
 * 2接口：PEX1(LINE0)------------------------------------:(PEX1_REFCLK)
 可配置选项如图
-![PCIE1](https://github.com/xuetongWang/NVIDIA-tx2-/tree/raw/master/Git_doc/images/1.png)
+![PCIE1](https://github.com/xuetongWang/NVIDIA-tx2-/raw/master/Git_doc/images/1.png)
 任何X4的总线可以单独使用X2线(LINE0&LINE1)或者可以使用X1线(LINE0).任何使用X2总线可以使用X1线(LINE0)
 
 * 由于内核已经集成了RTL8168的网卡驱动，所以我们不必更改网卡驱动部分的内容，只是吧module改成集成到内核之中，因为我们一直要使用小网卡，只是编译成模块没有意义。
