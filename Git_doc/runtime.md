@@ -37,7 +37,7 @@ make ARCH=arm64 menuconfig
 * 说明  
 build_kernel.sh为编译脚本，但是前提是有配置文件，第一次编译的时候是没有配置文件的。所以第一次需要用tegra_defconfig生成.config文件。生成了.config之后最好自己保存一份常用的.config文件，平时执行menuconfig配置就行了。  
 ## 驱动移植
-详细内容参考 [driver](Git_doc/driver.md)
+详细内容参考 [driver](../Git_doc/driver.md)
 
 ## 安装QT
 ### 安装
@@ -99,4 +99,4 @@ cp clone.img.raw /where/ever/Linux_for_Tegra/bootloader/system.img
 
 ## 参考文档
 
-* L4T使用说明：[L4T使用文档](https://docs.nvidia.com/jetson/l4t/index.html)
+* [L4T使用文档](https://docs.nvidia.com/jetson/l4t/index.html)
