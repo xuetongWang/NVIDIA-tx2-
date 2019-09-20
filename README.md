@@ -5,6 +5,8 @@ NVIDIA TX2的使用总结
 * [视频处理部分](#视频处理部分)
 * [参考文献](#参考文献)
 
+
+工程包含了NVIDIA官方的Carrier Board的环境搭建和视频处理的TensorRT代码。纯手工制作,还没完善，有时间就会更新。
 ## tx2硬件解析
 
 TX2: Pascal GPU + ARMv8 + 8GB LPDDR4 + 32GB eMMC + WLAN/BT  
