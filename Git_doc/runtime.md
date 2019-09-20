@@ -7,9 +7,6 @@ TX2 运行环境配置
     * [说明](#说明)
 * [驱动移植](#驱动移植)
 * [安装qt](#安装qt)
-* [安装ace](#安装ace)
-* [安装rabbitmq](#安装rabbitmq)
-* [数据库移植](#数据库移植)
 * [烧写](#烧写)
 * [参考文档](#参考文档)
 
@@ -53,55 +50,6 @@ sudo apt-get install qt5-default qtcreator -y
 Tools->Options->Build & Run->Compilers
 custom – arm – linux – generic – elf – 64 bit
 ```
-安装mysql
-```c
-apt-get install mysql-server-5.5
-apt-get install mysql-client-core-5.5
-apt-get install libqt5sql5-mysql
-```
-mysql密码：sleton
-### 程序移植
-参考qwt官网编译qwt库文件和qwtpolar文件添加库文件和头文件
-
-### 开机自动登录QT程序
-修改 /usr/share/xgreeters/.desktop文件 将application 参数的unity-greeter改成自己的QT程序
-
-## 安装ace
-进入github官网wget http://github.com/DOCGroup/ACE_TAO/releases 找到6.4.0源码进行下载
-设置环境变量 打开.bashrc文件
-在文件末尾添加如下内容
-```c
-ACE_ROOT=.../ACE_wrappers
-export ACE_ROOT=...//这个自己根据目录进行设置
-export LD_LIBRARY_PATH=...//这个自己根据目录进行设置
-export INSTALL_PREFIX=...//这个自己根据目录进行设置
-```
-进入源码目录，准备编译文件 创建config.h文件vim ace/config.h
-```c
-#include "config-linux.h"
-```
-创建GNU文件vim include/makeinclude/platform_macros.GNU
-```c
-include $(ACE_ROOT)/include/makeinclude/platform_linux.GNU
-```
-编译安装make && make install
-## 安装tslib
-安装tslib 的github网站上的顺序make就行了。添加库文件的时候制定到目录下就可以
-## 安装rabbitmq
-从https://github.com/alanxz/rabbitmq-c下载源码 进入源码目录：
-```c
-mkdir build && cd build
-cmake ..
-cmake --build . --config Release
-```
-然后把库文件和头文件包含到ARM程序中
-## 数据库移植
-配置/etc/mysql/my.cnf文件
-```c
-[mysqld]
-skip-grant-tables=1
-```
-
 ## 烧写
 烧写主要应用文件[flash.sh](../Sdk_platform/Linux_for_Tegra/flash.sh)关于脚本内容说明如下：  
 ```c
