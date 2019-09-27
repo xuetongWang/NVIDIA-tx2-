@@ -6,6 +6,11 @@
 * [串口触摸屏](#串口触摸屏)
 
 ## PCIE卡驱动修改 
+根据datasheet所知，TX2的PCIE共支持5线,3个接口，可配置  
+* X4+X1
+* X2 +X1 +X1
+* X1 +X1 +X1
+
 PCIE接口如下所示：  
 * 0接口: PEX2(LINE2)------PEX_RFU(LINE3)------PEX0(LINE0)------USB_SS1(LINE1):(PEX0_REFCLK)
 * 1接口：PEX2(LINE0)------------------------------------:(PEX2_REFCLK)
